@@ -22,7 +22,6 @@ const ForgotPassword: React.FC = () => {
 
     
 
-
             const respose = axios.post('/forgotPassword', data)
                 .then(() => {
                     console.log(respose)

@@ -3,21 +3,34 @@ import Login from './pages/Login'
 import './App.css'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
-
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import HomePage from './pages'
+import { authRoutes,DefaultRoutes } from './routes'
 function App() {
 
 
   return (
     <BrowserRouter>
+  
 <Routes>
-  <Route path='/Login' element={<Login/>} />
-  <Route path='/Signup' element={<Signup/>} />
- <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
-   {/* <Route path='/' element={} />
-  <Route path='/' element={} /> */}
+  {
+    sessionStorage.getItem("authUser")? 
+  ( 
+    <>
+  <Navbar/>
+  <Route path={authRoutes.HOME} element={<HomePage/>}/>
+    <Footer/>  </>
+):( <>
+  <Route path={DefaultRoutes.LOGIN} element={<Login/>} />
+  <Route path={DefaultRoutes.SIGNIN} element={<Signup/>} />
+ <Route path={DefaultRoutes.ForgotPassword} element={<ForgotPassword/>}/> </> 
+) }
+
+ 
   
 </Routes>
-    <h3>Ecommerce app  </h3>
+
     </BrowserRouter>
   )
 }

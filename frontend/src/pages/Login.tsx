@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DefaultRoutes } from '../routes'
 const Login = () => {
   const [email,setEmail]=useState<string>('')
 const [password,setPassword]=useState<string>('')
@@ -23,9 +24,9 @@ e.preventDefault()
             placeholder='enter your password'
             onChange={(e)=>setPassword(e.target.value)}
             value={password} /> <br/> 
-              <Link to='/ForgotPassword'> Forgot password ?</Link>
+              <Link to={DefaultRoutes.ForgotPassword}> Forgot password ?</Link>
             <button> Login</button>
-            <p>Didn't have an account <Link to='/signup'>Create a new account</Link></p>
+            <p>Didn't have an account <Link to={DefaultRoutes.SIGNIN}>Create a new account</Link></p>
         </form>
     </div>
   )

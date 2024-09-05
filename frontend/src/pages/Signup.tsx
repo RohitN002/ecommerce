@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DefaultRoutes } from '../routes'
 const Signup = () => {
   const [name,setName]=useState<string>('')
   const [email,setEmail]=useState<string>('')
@@ -27,7 +28,7 @@ const handleSiginupSubmit=(e:React.FormEvent)=>{
           />
 <br/>
         <button type='submit'>create</button>
-        <p>Already have a account <Link to='/login'>Login</Link></p>
+        <p>Already have a account <Link to={DefaultRoutes.LOGIN}>Login</Link></p>
      </form>
     </div>
   )
